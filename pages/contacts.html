@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - peepiza</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Ларичева Елизавета</h1>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="contact-section">
+                <h2 class="section__title">Оставьте весточку</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <form class="form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Имя:</label>
+                                <input type="text" id="name" class="form-input" placeholder="Введите ваше имя">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" id="email" class="form-input" placeholder="Введите ваш email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Что расскажете?:</label>
+                                <textarea id="message" class="form-textarea" placeholder="Введите ваше сообщение" rows="5"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="form-button">Отправить сообщение</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3 class="contact-info__title">Контакты:</h3>
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <span class="contact-text">li3ywa@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span class="contact-text">GitHub: https://github.com/peepiza</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span class="contact-text">Москва, Россия</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p class="footer__text">© 2025 8(968)7318218</p>
+        </footer>
+    </div>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

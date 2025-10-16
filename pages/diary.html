@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник - peepiza</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Елизавета Ларичева</h1>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="diary-page">
+                <div class="diary-content">
+                    <div class="diary-column">
+                        <h2 class="section__title">Мой учебный прогресс</h2>
+                        <div class="progress-list">
+                            <div class="progress-item progress-item--completed">
+                                <span class="progress-date">29 сент</span>
+                                <span class="progress-text">- Контрольная по ТИП</span>
+                                <span class="progress-status">✓</span>
+                            </div>
+                            <div class="progress-item progress-item--completed">
+                                <span class="progress-date">8 окт</span>
+                                <span class="progress-text">- Контрольная по матану</span>
+                                <span class="progress-status">✓</span>
+                            </div>
+                            <div class="progress-item progress-item--in-progress">
+                                <span class="progress-date">16 окт</span>
+                                <span class="progress-text">- Контрольная по ФиБ разработке</span>
+                                <span class="progress-status">in progress</span>
+                            </div>
+                        </div>
+                        <button class="add-entry-btn">Добавить запись</button>
+                    </div>
+                    
+                    <div class="diary-column">
+                        <h2 class="section__title">Текущие курсы</h2>
+                        <div class="courses-list">
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">Веб-разработка</span>
+                                    <span class="course-percentage">70%</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="course-progress-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">Листание рилсов</span>
+                                    <span class="course-percentage">80%</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="course-progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-header">
+                                    <span class="course-name">мяу?</span>
+                                    <span class="course-percentage">50%</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="course-progress-bar" style="width: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p class="footer__text">© 2025 8(968)7318218</p>
+        </footer>
+    </div>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

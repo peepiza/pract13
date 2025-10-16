@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - peepiza</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Ларичева Елизавета</h1>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/projects.html">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="hero">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h2 class="hero__name">Ларичева Елизавета</h2>
+                        <p class="hero__description">Привет! Я студентка группы ЭФБО-04-24<br>Люблю вайб ловить и спать.</p>
+                        <button class="hero__button" onclick="downloadResume()">Скачать резюме</button>
+                    </div>
+                    <div class="hero__image">
+                        <img src="images/icons/egvard.jpg" alt="Фото студента" class="hero__photo">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="skills">
+                <h2 class="section__title">Мои навыки</h2>
+                <div class="skills__grid">
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Приезжать к 1 паре</span>
+                            <span class="skill__percentage">30%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Смотреть рилсы</span>
+                            <span class="skill__percentage">80%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Спать где угодно</span>
+                            <span class="skill__percentage">85%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Шутить шутки</span>
+                            <span class="skill__percentage">60%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="projects">
+                <h2 class="section__title">Лучшие проекты</h2>
+                <div class="projects__grid">
+                    <div class="project-card">
+                        <h3 class="project-card__title">П1</h3>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-card__title">П2</h3>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-card__title">П3</h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p class="footer__text">© 2025 8(968)7318218</p>
+        </footer>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+    function downloadResume() {
+        // Функция для скачивания резюме
+        const link = document.createElement('a');
+        link.href = 'assets/resume.pdf';
+        link.download = 'resume.pdf';
+        link.click();
+    }
+
+    // Добавляем интерактивность для прогресс-баров
+    document.addEventListener('DOMContentLoaded', function() {
+        const skillProgresses = document.querySelectorAll('.skill__progress');
+        
+        skillProgresses.forEach(progress => {
+            const width = progress.style.width;
+            progress.style.width = '0';
+            setTimeout(() => {
+                progress.style.width = width;
+            }, 100);
+        });
+    });
+</script>
+</body>
+</html>

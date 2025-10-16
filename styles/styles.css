@@ -728,3 +728,44 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #a00, #800);
 }
+/* Project Card Images */
+.project-card__image {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Project Card Images */
+.project-card__image {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.project-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #8b0000;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-photo {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .project-photo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-photo {
+        width: 120px;
+        height: 120px;
+    }
+}

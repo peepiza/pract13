@@ -2,11 +2,12 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Контакты - peepiza</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
     <div class="page">
         <header class="header">
             <h1 class="header__title">Ларичева Елизавета</h1>
@@ -29,45 +30,182 @@
             </ul>
         </nav>
         
-        <main class="main">
+        <main id="main" class="main">
             <section class="contact-section">
-                <h2 class="section__title">Оставьте весточку</h2>
-                
-                <div class="contact-content">
-                    <div class="contact-form">
-                        <form class="form">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Имя:</label>
-                                <input type="text" id="name" class="form-input" placeholder="Введите ваше имя">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email:</label>
-                                <input type="email" id="email" class="form-input" placeholder="Введите ваш email">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message" class="form-label">Что расскажете?:</label>
-                                <textarea id="message" class="form-textarea" placeholder="Введите ваше сообщение" rows="5"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="form-button">Отправить сообщение</button>
-                        </form>
-                    </div>
+                <div class="contact-area">
+                    <h2 class="section__title">Оставьте весточку</h2>
                     
-                    <div class="contact-info">
-                        <h3 class="contact-info__title">Контакты:</h3>
-                        <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
-                            <span class="contact-text">li3ywa@gmail.com</span>
+                    <div class="contact-content">
+                        <div class="contact-form">
+                            <form class="form" id="contactForm" novalidate>
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Имя:</label>
+                                    <input type="text" id="name" name="name" class="form-input" 
+                                           placeholder="Введите ваше имя" required
+                                           aria-describedby="name-hint name-error"
+                                           minlength="2" maxlength="50">
+                                    <small id="name-hint" class="form-hint visually-hidden">Пожалуйста, введите ваше имя</small>
+                                    <span id="name-error" class="form-error visually-hidden" role="alert"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email:</label>
+                                    <input type="email" id="email" name="email" class="form-input" 
+                                           placeholder="Введите ваш email" required
+                                           aria-describedby="email-hint email-error"
+                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    <small id="email-hint" class="form-hint visually-hidden">Мы пришлём ответ на этот адрес</small>
+                                    <span id="email-error" class="form-error visually-hidden" role="alert"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Тема:</label>
+                                    <select id="subject" name="subject" class="form-select" 
+                                            aria-describedby="subject-hint" required>
+                                        <option value="">Выберите тему сообщения</option>
+                                        <option value="collaboration">Сотрудничество</option>
+                                        <option value="project">Проект</option>
+                                        <option value="question">Вопрос</option>
+                                        <option value="feedback">Отзыв</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                    <small id="subject-hint" class="form-hint visually-hidden">Выберите тему вашего сообщения</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Что расскажете?:</label>
+                                    <textarea id="message" name="message" class="form-textarea" 
+                                              placeholder="Введите ваше сообщение" rows="5" required
+                                              aria-describedby="message-hint message-error"
+                                              minlength="10" maxlength="1000"></textarea>
+                                    <small id="message-hint" class="form-hint visually-hidden">Напишите ваше сообщение здесь</small>
+                                    <span id="message-error" class="form-error visually-hidden" role="alert"></span>
+                                    <div class="char-count">
+                                        <span id="char-counter">0</span>/1000 символов
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" id="newsletter" name="newsletter">
+                                        <span class="checkbox-label">Подписаться на рассылку о новых проектах</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" id="privacy" name="privacy" required>
+                                        <span class="checkbox-label">Я соглашаюсь с <a href="../privacy.html" class="privacy-link">политикой конфиденциальности</a></span>
+                                    </label>
+                                    <span id="privacy-error" class="form-error visually-hidden" role="alert"></span>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="form-button" aria-describedby="submit-hint">
+                                        Отправить сообщение
+                                    </button>
+                                    <button type="reset" class="form-button form-button--secondary">
+                                        Очистить форму
+                                    </button>
+                                </div>
+                                <small id="submit-hint" class="form-hint visually-hidden">Нажмите чтобы отправить сообщение</small>
+                            </form>
                         </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📱</span>
-                            <span class="contact-text">GitHub: https://github.com/peepiza</span>
+                        
+                        <div class="contact-info">
+                            <h3 class="contact-info__title">Контакты</h3>
+                            <div class="contact-items">
+                                <div class="contact-item">
+                                    <span class="contact-icon" aria-hidden="true">✉️</span>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Email</span>
+                                        <a href="mailto:li3ywa@gmail.com" class="contact-link">li3ywa@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <span class="contact-icon" aria-hidden="true">📱</span>
+                                    <div class="contact-details">
+                                        <span class="contact-label">GitHub</span>
+                                        <a href="https://github.com/peepiza" class="contact-link" target="_blank" rel="noopener noreferrer">
+                                            github.com/peepiza
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <span class="contact-icon" aria-hidden="true">💼</span>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Telegram</span>
+                                        <a href="https://t.me/peepiza" class="contact-link" target="_blank" rel="noopener noreferrer">
+                                            @peepiza
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <span class="contact-icon" aria-hidden="true">📍</span>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Местоположение</span>
+                                        <span class="contact-text">Москва, Россия</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <span class="contact-icon" aria-hidden="true">🎓</span>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Образование</span>
+                                        <span class="contact-text">РТУ МИРЭА, группа ЭФБО-04-24</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-social">
+                                <h4 class="social-title">Социальные сети</h4>
+                                <div class="social-links">
+                                    <a href="https://github.com/peepiza" class="social-link" target="_blank" rel="noopener noreferrer"
+                                       aria-label="GitHub профиль">
+                                        <span class="social-icon">🐙</span>
+                                        <span class="social-name">GitHub</span>
+                                    </a>
+                                    <a href="https://t.me/peepiza" class="social-link" target="_blank" rel="noopener noreferrer"
+                                       aria-label="Telegram канал">
+                                        <span class="social-icon">✈️</span>
+                                        <span class="social-name">Telegram</span>
+                                    </a>
+                                    <a href="https://vk.com/peepiza" class="social-link" target="_blank" rel="noopener noreferrer"
+                                       aria-label="ВКонтакте профиль">
+                                        <span class="social-icon">👥</span>
+                                        <span class="social-name">VK</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="contact-hours">
+                                <h4 class="hours-title">Время для связи</h4>
+                                <div class="hours-list">
+                                    <div class="hour-item">
+                                        <span class="hour-day">Пн-Пт</span>
+                                        <span class="hour-time">10:00 - 18:00</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="hour-day">Сб-Вс</span>
+                                        <span class="hour-time">12:00 - 16:00</span>
+                                    </div>
+                                </div>
+                                <p class="hours-note">Отвечаю в течение 24 часов в рабочее время</p>
+                            </div>
                         </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <span class="contact-text">Москва, Россия</span>
+                    </div>
+
+                    <div class="contact-map">
+                        <h3 class="map-title">Найдите меня здесь</h3>
+                        <div class="map-placeholder" role="img" aria-label="Карта расположения в Москве">
+                            <div class="map-content">
+                                <span class="map-icon">🗺️</span>
+                                <p class="map-text">Москва, Россия</p>
+                                <p class="map-description">РТУ МИРЭА и окрестности</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,5 +218,160 @@
     </div>
 
     <script src="../scripts/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const charCounter = document.getElementById('char-counter');
+        const messageTextarea = document.getElementById('message');
+
+        // Счетчик символов для сообщения
+        if (messageTextarea && charCounter) {
+            messageTextarea.addEventListener('input', function() {
+                const length = this.value.length;
+                charCounter.textContent = length;
+                
+                // Визуальная индикация при приближении к лимиту
+                if (length > 900) {
+                    charCounter.style.color = '#ff4444';
+                } else if (length > 700) {
+                    charCounter.style.color = '#f39c12';
+                } else {
+                    charCounter.style.color = '#27ae60';
+                }
+            });
+        }
+
+        // Валидация формы
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    // Здесь можно добавить отправку формы
+                    console.log('Форма валидна, отправляем данные...');
+                    
+                    // Показать сообщение об успехе
+                    showFormMessage('Сообщение успешно отправлено! Спасибо за ваше сообщение.', 'success');
+                    
+                    // Сброс формы
+                    this.reset();
+                    charCounter.textContent = '0';
+                    charCounter.style.color = '#27ae60';
+                }
+            });
+
+            // Реальная валидация при вводе
+            const inputs = contactForm.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('blur', validateField);
+                input.addEventListener('input', clearFieldError);
+            });
+        }
+
+        // Функции валидации
+        function validateForm() {
+            let isValid = true;
+            const inputs = contactForm.querySelectorAll('input, textarea, select');
+            
+            inputs.forEach(input => {
+                if (!validateField({ target: input })) {
+                    isValid = false;
+                }
+            });
+
+            return isValid;
+        }
+
+        function validateField(e) {
+            const field = e.target;
+            const errorElement = document.getElementById(`${field.id}-error`);
+            let isValid = true;
+            let errorMessage = '';
+
+            // Проверка обязательных полей
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                isValid = false;
+                errorMessage = 'Это поле обязательно для заполнения';
+            }
+
+            // Проверка email
+            if (field.type === 'email' && field.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    isValid = false;
+                    errorMessage = 'Пожалуйста, введите корректный email адрес';
+                }
+            }
+
+            // Проверка минимальной длины
+            if (field.hasAttribute('minlength') && field.value.length < field.getAttribute('minlength')) {
+                isValid = false;
+                errorMessage = `Минимальная длина: ${field.getAttribute('minlength')} символов`;
+            }
+
+            // Показать/скрыть ошибку
+            if (errorElement) {
+                if (!isValid) {
+                    errorElement.textContent = errorMessage;
+                    errorElement.classList.remove('visually-hidden');
+                    field.classList.add('form-input--error');
+                } else {
+                    errorElement.classList.add('visually-hidden');
+                    field.classList.remove('form-input--error');
+                }
+            }
+
+            return isValid;
+        }
+
+        function clearFieldError(e) {
+            const field = e.target;
+            const errorElement = document.getElementById(`${field.id}-error`);
+            
+            if (errorElement) {
+                errorElement.classList.add('visually-hidden');
+                field.classList.remove('form-input--error');
+            }
+        }
+
+        function showFormMessage(message, type) {
+            // Создаем элемент сообщения
+            const messageElement = document.createElement('div');
+            messageElement.className = `form-message form-message--${type}`;
+            messageElement.textContent = message;
+            messageElement.setAttribute('role', 'alert');
+            
+            // Добавляем перед формой
+            contactForm.parentNode.insertBefore(messageElement, contactForm);
+            
+            // Автоматически скрываем через 5 секунд
+            setTimeout(() => {
+                messageElement.remove();
+            }, 5000);
+        }
+
+        // Улучшение доступности навигации
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Обработчик для социальных ссылок
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>

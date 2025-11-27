@@ -2,11 +2,12 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Дневник - peepiza</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
     <div class="page">
         <header class="header">
             <h1 class="header__title">Елизавета Ларичева</h1>
@@ -29,59 +30,230 @@
             </ul>
         </nav>
         
-        <main class="main">
+        <main id="main" class="main">
             <section class="diary-page">
-                <div class="diary-content">
-                    <div class="diary-column">
-                        <h2 class="section__title">Мой учебный прогресс</h2>
-                        <div class="progress-list">
-                            <div class="progress-item progress-item--completed">
-                                <span class="progress-date">29 сент</span>
-                                <span class="progress-text">- Контрольная по ТИП</span>
-                                <span class="progress-status">✓</span>
+                <div class="diary-area">
+                    <div class="diary-content">
+                        <div class="diary-column">
+                            <h2 class="section__title">Мой учебный прогресс</h2>
+                            <div class="progress-list">
+                                <article class="progress-item progress-item--completed">
+                                    <div class="progress-item__content">
+                                        <time class="progress-date" datetime="2024-09-29">29 сент</time>
+                                        <span class="progress-text">Контрольная по ТИП</span>
+                                        <span class="progress-status" aria-label="Завершено">✓</span>
+                                    </div>
+                                    <div class="progress-details">
+                                        <p class="progress-description">Успешно сдала контрольную работу по теории информационных процессов</p>
+                                        <span class="progress-grade">Оценка: 5</span>
+                                    </div>
+                                </article>
+                                
+                                <article class="progress-item progress-item--completed">
+                                    <div class="progress-item__content">
+                                        <time class="progress-date" datetime="2024-10-08">8 окт</time>
+                                        <span class="progress-text">Контрольная по матану</span>
+                                        <span class="progress-status" aria-label="Завершено">✓</span>
+                                    </div>
+                                    <div class="progress-details">
+                                        <p class="progress-description">Решены задачи по математическому анализу, включая пределы и производные</p>
+                                        <span class="progress-grade">Оценка: 4</span>
+                                    </div>
+                                </article>
+                                
+                                <article class="progress-item progress-item--in-progress">
+                                    <div class="progress-item__content">
+                                        <time class="progress-date" datetime="2024-10-16">16 окт</time>
+                                        <span class="progress-text">Контрольная по ФиБ разработке</span>
+                                        <span class="progress-status" aria-label="В процессе выполнения">in progress</span>
+                                    </div>
+                                    <div class="progress-details">
+                                        <p class="progress-description">Подготовка к контрольной работе по фронтенд и бэкенд разработке</p>
+                                        <div class="progress-subtasks">
+                                            <label class="progress-subtask">
+                                                <input type="checkbox" checked>
+                                                <span>Изучить адаптивную верстку</span>
+                                            </label>
+                                            <label class="progress-subtask">
+                                                <input type="checkbox" checked>
+                                                <span>Практика с Grid и Flexbox</span>
+                                            </label>
+                                            <label class="progress-subtask">
+                                                <input type="checkbox">
+                                                <span>Контейнерные запросы</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="progress-item progress-item--upcoming">
+                                    <div class="progress-item__content">
+                                        <time class="progress-date" datetime="2024-10-25">25 окт</time>
+                                        <span class="progress-text">Проект по веб-разработке</span>
+                                        <span class="progress-status" aria-label="Предстоящее">planned</span>
+                                    </div>
+                                    <div class="progress-details">
+                                        <p class="progress-description">Разработка полнофункционального веб-приложения с использованием современных технологий</p>
+                                        <div class="progress-tags">
+                                            <span class="progress-tag">HTML</span>
+                                            <span class="progress-tag">CSS</span>
+                                            <span class="progress-tag">JavaScript</span>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                            <div class="progress-item progress-item--completed">
-                                <span class="progress-date">8 окт</span>
-                                <span class="progress-text">- Контрольная по матану</span>
-                                <span class="progress-status">✓</span>
-                            </div>
-                            <div class="progress-item progress-item--in-progress">
-                                <span class="progress-date">16 окт</span>
-                                <span class="progress-text">- Контрольная по ФиБ разработке</span>
-                                <span class="progress-status">in progress</span>
-                            </div>
+                            
+                            <form class="add-entry-form" id="addEntryForm">
+                                <h3 class="add-entry__title">Добавить новую запись</h3>
+                                <div class="form-group">
+                                    <label for="entry-date" class="form-label">Дата:</label>
+                                    <input type="date" id="entry-date" class="form-input" required
+                                           aria-describedby="date-hint">
+                                    <small id="date-hint" class="visually-hidden">Выберите дату для новой записи</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="entry-title" class="form-label">Заголовок:</label>
+                                    <input type="text" id="entry-title" class="form-input" 
+                                           placeholder="Название задания или события" required
+                                           aria-describedby="title-hint">
+                                    <small id="title-hint" class="visually-hidden">Введите заголовок для новой записи</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="entry-description" class="form-label">Описание:</label>
+                                    <textarea id="entry-description" class="form-textarea" 
+                                              placeholder="Подробное описание задания..." 
+                                              rows="3" aria-describedby="description-hint"></textarea>
+                                    <small id="description-hint" class="visually-hidden">Добавьте описание для новой записи</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Статус:</label>
+                                    <div class="status-radio-group">
+                                        <label class="status-radio">
+                                            <input type="radio" name="status" value="planned" checked>
+                                            <span class="status-radio__label">Запланировано</span>
+                                        </label>
+                                        <label class="status-radio">
+                                            <input type="radio" name="status" value="in-progress">
+                                            <span class="status-radio__label">В процессе</span>
+                                        </label>
+                                        <label class="status-radio">
+                                            <input type="radio" name="status" value="completed">
+                                            <span class="status-radio__label">Завершено</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="form-button add-entry-btn">Добавить запись</button>
+                                    <button type="reset" class="form-button form-button--secondary">Очистить</button>
+                                </div>
+                            </form>
                         </div>
-                        <button class="add-entry-btn">Добавить запись</button>
-                    </div>
-                    
-                    <div class="diary-column">
-                        <h2 class="section__title">Текущие курсы</h2>
-                        <div class="courses-list">
-                            <div class="course-item">
-                                <div class="course-header">
-                                    <span class="course-name">Веб-разработка</span>
-                                    <span class="course-percentage">70%</span>
-                                </div>
-                                <div class="course-progress">
-                                    <div class="course-progress-bar" style="width: 70%"></div>
-                                </div>
+                        
+                        <div class="diary-column">
+                            <h2 class="section__title">Текущие курсы</h2>
+                            <div class="courses-list">
+                                <article class="course-item">
+                                    <div class="course-header">
+                                        <h3 class="course-name">Веб-разработка</h3>
+                                        <span class="course-percentage" aria-label="Прогресс 70 процентов">70%</span>
+                                    </div>
+                                    <div class="course-progress">
+                                        <div class="course-progress-bar" style="width: 70%" role="progressbar" 
+                                             aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="course-details">
+                                        <p class="course-description">Изучение современных технологий веб-разработки</p>
+                                        <div class="course-modules">
+                                            <span class="course-module course-module--completed">HTML5</span>
+                                            <span class="course-module course-module--completed">CSS3</span>
+                                            <span class="course-module course-module--in-progress">JavaScript</span>
+                                            <span class="course-module course-module--upcoming">React</span>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <article class="course-item">
+                                    <div class="course-header">
+                                        <h3 class="course-name">Листание рилсов</h3>
+                                        <span class="course-percentage" aria-label="Прогресс 80 процентов">80%</span>
+                                    </div>
+                                    <div class="course-progress">
+                                        <div class="course-progress-bar" style="width: 80%" role="progressbar" 
+                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="course-details">
+                                        <p class="course-description">Освоение искусства эффективного потребления короткого контента</p>
+                                        <div class="course-modules">
+                                            <span class="course-module course-module--completed">Базовое листание</span>
+                                            <span class="course-module course-module--completed">Алгоритмы</span>
+                                            <span class="course-module course-module--in-progress">Тайм-менеджмент</span>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <article class="course-item">
+                                    <div class="course-header">
+                                        <h3 class="course-name">мяу?</h3>
+                                        <span class="course-percentage" aria-label="Прогресс 50 процентов">50%</span>
+                                    </div>
+                                    <div class="course-progress">
+                                        <div class="course-progress-bar" style="width: 50%" role="progressbar" 
+                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="course-details">
+                                        <p class="course-description">Исследование кошачьего языка и поведения</p>
+                                        <div class="course-modules">
+                                            <span class="course-module course-module--completed">Базовое мяуканье</span>
+                                            <span class="course-module course-module--in-progress">Мурлыкание</span>
+                                            <span class="course-module course-module--upcoming">Выпрашивание еды</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="course-item">
+                                    <div class="course-header">
+                                        <h3 class="course-name">Фронтенд и бэкенд разработка</h3>
+                                        <span class="course-percentage" aria-label="Прогресс 45 процентов">45%</span>
+                                    </div>
+                                    <div class="course-progress">
+                                        <div class="course-progress-bar" style="width: 45%" role="progressbar" 
+                                             aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="course-details">
+                                        <p class="course-description">Комбинирование методов адаптивной верстки и серверной разработки</p>
+                                        <div class="course-modules">
+                                            <span class="course-module course-module--completed">Основы HTML/CSS</span>
+                                            <span class="course-module course-module--in-progress">Адаптивная верстка</span>
+                                            <span class="course-module course-module--upcoming">JavaScript</span>
+                                            <span class="course-module course-module--upcoming">Node.js</span>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                            <div class="course-item">
-                                <div class="course-header">
-                                    <span class="course-name">Листание рилсов</span>
-                                    <span class="course-percentage">80%</span>
-                                </div>
-                                <div class="course-progress">
-                                    <div class="course-progress-bar" style="width: 80%"></div>
-                                </div>
-                            </div>
-                            <div class="course-item">
-                                <div class="course-header">
-                                    <span class="course-name">мяу?</span>
-                                    <span class="course-percentage">50%</span>
-                                </div>
-                                <div class="course-progress">
-                                    <div class="course-progress-bar" style="width: 50%"></div>
+
+                            <div class="diary-stats">
+                                <h3 class="stats__title">Статистика прогресса</h3>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <span class="stat-value">3</span>
+                                        <span class="stat-label">Завершено</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">2</span>
+                                        <span class="stat-label">В процессе</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">1</span>
+                                        <span class="stat-label">Запланировано</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">75%</span>
+                                        <span class="stat-label">Общий прогресс</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -96,5 +268,82 @@
     </div>
 
     <script src="../scripts/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Инициализация прогресс-баров курсов
+        const courseBars = document.querySelectorAll('.course-progress-bar');
+        courseBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 300);
+        });
+
+        // Обработчик формы добавления записи
+        const addEntryForm = document.getElementById('addEntryForm');
+        if (addEntryForm) {
+            addEntryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const entryData = {
+                    date: formData.get('entry-date'),
+                    title: formData.get('entry-title'),
+                    description: formData.get('entry-description'),
+                    status: formData.get('status')
+                };
+                
+                // Здесь можно добавить логику сохранения записи
+                console.log('Новая запись:', entryData);
+                
+                // Сброс формы
+                this.reset();
+                
+                // Показать сообщение об успехе
+                alert('Запись успешно добавлена!');
+            });
+        }
+
+        // Обработчики для чекбоксов подзадач
+        const subtaskCheckboxes = document.querySelectorAll('.progress-subtask input[type="checkbox"]');
+        subtaskCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const subtask = this.closest('.progress-subtask');
+                if (this.checked) {
+                    subtask.classList.add('subtask--completed');
+                } else {
+                    subtask.classList.remove('subtask--completed');
+                }
+            });
+        });
+
+        // Улучшение доступности для навигации
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Анимация с учетом prefers-reduced-motion
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reducedMotion) {
+            const progressItems = document.querySelectorAll('.progress-item');
+            progressItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+    });
+    </script>
 </body>
 </html>

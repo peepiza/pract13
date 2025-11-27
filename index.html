@@ -2,11 +2,12 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Главная - peepiza</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
     <div class="page">
         <header class="header">
             <h1 class="header__title">Ларичева Елизавета</h1>
@@ -29,7 +30,7 @@
             </ul>
         </nav>
         
-        <main class="main">
+        <main id="main" class="main">
             <section class="hero">
                 <div class="hero__content">
                     <div class="hero__text">
@@ -38,7 +39,22 @@
                         <button class="hero__button" onclick="downloadResume()">Скачать резюме</button>
                     </div>
                     <div class="hero__image">
-                        <img src="images/icons/egvard.png" alt="Фото" class="hero__photo">
+                        <picture>
+                            <source type="image/avif" 
+                                    srcset="images/egvard-150.avif 150w, images/egvard-200.avif 200w, images/egvard-300.avif 300w"
+                                    sizes="200px">
+                            <source type="image/webp" 
+                                    srcset="images/egvard-150.webp 150w, images/egvard-200.webp 200w, images/egvard-300.webp 300w"
+                                    sizes="200px">
+                            <img class="hero__photo"
+                                src="images/egvard-200.jpg"
+                                srcset="images/egvard-150.jpg 150w, images/egvard-200.jpg 200w, images/egvard-300.jpg 300w"
+                                sizes="200px"
+                                width="200" height="200"
+                                alt="Портрет Елизаветы Ларичевой"
+                                fetchpriority="high">
+                        </picture>
+                        <span class="hero__pagination">1/1</span>
                     </div>
                 </div>
             </section>
@@ -85,30 +101,87 @@
                 </div>
             </section>
             
-            
             <section class="projects">
-                <h2 class="section__title">Лучшие проекты</h2>
-                <div class="projects__grid">
-                     <div class="project-card">
-                        <div class="project-card__image">
-                            <img src="images/icons/шар.png" alt="Диско-шар" class="project-photo">
-                        </div>
-                        <h3 class="project-card__title">Диско-шар</h3>
-                    </div>
-                     <div class="project-card">
-                        <div class="project-card__image">
-                            <img src="images/icons/белье.png" alt="белье" class="project-photo">
-                         </div>
-                          <h3 class="project-card__title">Постельное белье</h3>
-                         </div>
-                          <div class="project-card">
+                <div class="projects-area">
+                    <h2 class="section__title">Лучшие проекты</h2>
+                    <div class="projects__grid">
+                        <article class="project-card">
                             <div class="project-card__image">
-                                <img src="images/icons/носки.png" alt="носки" class="project-photo">
+                                <picture>
+                                    <source type="image/avif" 
+                                            srcset="images/disco-ball-150.avif 150w, images/disco-ball-300.avif 300w"
+                                            sizes="(max-width: 768px) 150px, 200px">
+                                    <source type="image/webp" 
+                                            srcset="images/disco-ball-150.webp 150w, images/disco-ball-300.webp 300w"
+                                            sizes="(max-width: 768px) 150px, 200px">
+                                    <img src="images/disco-ball-300.jpg"
+                                         srcset="images/disco-ball-150.jpg 150w, images/disco-ball-300.jpg 300w"
+                                         sizes="(max-width: 768px) 150px, 200px"
+                                         width="200" height="200"
+                                         alt="Диско-шар с разноцветными бликами"
+                                         class="project-photo"
+                                         loading="lazy">
+                                </picture>
                             </div>
-                            <h3 class="project-card__title">носочки</h3>
-                        </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Диско-шар</h3>
+                                <p class="project-card__description">Создание атмосферы вечеринки с помощью классического диско-шара</p>
+                                <span class="project-card__category">развлекательные</span>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <picture>
+                                    <source type="image/avif" 
+                                            srcset="images/bed-linen-150.avif 150w, images/bed-linen-300.avif 300w"
+                                            sizes="(max-width: 768px) 150px, 200px">
+                                    <source type="image/webp" 
+                                            srcset="images/bed-linen-150.webp 150w, images/bed-linen-300.webp 300w"
+                                            sizes="(max-width: 768px) 150px, 200px">
+                                    <img src="images/bed-linen-300.jpg"
+                                         srcset="images/bed-linen-150.jpg 150w, images/bed-linen-300.jpg 300w"
+                                         sizes="(max-width: 768px) 150px, 200px"
+                                         width="200" height="200"
+                                         alt="Мягкое постельное белье с узором"
+                                         class="project-photo"
+                                         loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Постельное белье</h3>
+                                <p class="project-card__description">Комфорт и уют для качественного отдыха и сладких снов</p>
+                                <span class="project-card__category">комфорт</span>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <picture>
+                                    <source type="image/avif" 
+                                            srcset="images/socks-150.avif 150w, images/socks-300.avif 300w"
+                                            sizes="(max-width: 768px) 150px, 200px">
+                                    <source type="image/webp" 
+                                            srcset="images/socks-150.webp 150w, images/socks-300.webp 300w"
+                                            sizes="(max-width: 768px) 150px, 200px">
+                                    <img src="images/socks-300.jpg"
+                                         srcset="images/socks-150.jpg 150w, images/socks-300.jpg 300w"
+                                         sizes="(max-width: 768px) 150px, 200px"
+                                         width="200" height="200"
+                                         alt="Теплые разноцветные носки"
+                                         class="project-photo"
+                                         loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Носочки</h3>
+                                <p class="project-card__description">Теплые и уютные носки для холодных вечеров и домашнего комфорта</p>
+                                <span class="project-card__category">уют</span>
+                            </div>
+                        </article>
                     </div>
-                </section>
+                </div>
+            </section>
         </main>
         
         <footer class="footer">
@@ -122,7 +195,7 @@
         // Функция для скачивания резюме
         const link = document.createElement('a');
         link.href = 'assets/resume.pdf';
-        link.download = 'resume.pdf';
+        link.download = 'resume_laricheva.pdf';
         link.click();
     }
 
@@ -137,7 +210,50 @@
                 progress.style.width = width;
             }, 100);
         });
+
+        // Добавляем обработчики для улучшения доступности
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Обработчик для кнопки скачивания резюме
+        const downloadBtn = document.querySelector('.hero__button');
+        downloadBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                downloadResume();
+            }
+        });
     });
-</script>
+
+    // Улучшенная анимация прогресс-баров с учетом prefers-reduced-motion
+    function animateSkills() {
+        const skillProgresses = document.querySelectorAll('.skill__progress');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        skillProgresses.forEach((progress, index) => {
+            const width = progress.style.width;
+            progress.style.width = '0';
+            
+            setTimeout(() => {
+                if (reducedMotion) {
+                    progress.style.width = width;
+                } else {
+                    progress.style.transition = 'width 1s ease-in-out';
+                    progress.style.width = width;
+                }
+            }, index * 200);
+        });
+    }
+
+    // Запускаем анимацию при загрузке
+    document.addEventListener('DOMContentLoaded', animateSkills);
+    </script>
 </body>
 </html>

@@ -2,11 +2,12 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Проекты - peepiza</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
     <div class="page">
         <header class="header">
             <h1 class="header__title">Ларичева Елизавета</h1>
@@ -29,45 +30,135 @@
             </ul>
         </nav>
         
-        <main class="main">
+        <main id="main" class="main">
             <section class="projects-page">
-                <div class="projects-header">
-                    <h2 class="section__title">Мои проекты</h2>
-                    <div class="projects-filter">
-                        <button class="filter-btn filter-btn--active">Все</button>
-                        <button class="filter-btn">умные</button>
-                        <button class="filter-btn">смешные</button>
-                        <button class="filter-btn">сложные</button>
-                    </div>
-                </div>
-                
-                <div class="projects-grid">
-                    <div class="project-card-large">
-                        <div class="project-card__content">
-                            <h3 class="project-card__title">Калькулятор на C#</h3>
-                            <p class="project-card__tech">умные</p>
+                <div class="projects-area">
+                    <div class="projects-header">
+                        <h2 class="section__title">Мои проекты</h2>
+                        <div class="projects-filter">
+                            <button class="filter-btn filter-btn--active" aria-pressed="true">Все</button>
+                            <button class="filter-btn" aria-pressed="false">умные</button>
+                            <button class="filter-btn" aria-pressed="false">смешные</button>
+                            <button class="filter-btn" aria-pressed="false">сложные</button>
                         </div>
                     </div>
                     
-                    <div class="project-card-large">
-                        <div class="project-card__content">
-                            <h3 class="project-card__title">Сайт про меня</h3>
-                            <p class="project-card__tech">смешные</p>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card-large">
-                        <div class="project-card__content">
-                            <h3 class="project-card__title">Сайт для Традиционного бала РТУ МИРЭА</h3>
-                            <p class="project-card__tech">сложные</p>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card-large">
-                        <div class="project-card__content">
-                            <h3 class="project-card__title">Портфолио (скоро будет)</h3>
-                            <p class="project-card__tech">сложные</p>
-                        </div>
+                    <div class="projects-grid">
+                        <article class="project-card-large">
+                            <div class="project-card__image">
+                                <picture>
+                                    <source type="image/avif" 
+                                            srcset="../images/calculator-150.avif 150w, ../images/calculator-300.avif 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <source type="image/webp" 
+                                            srcset="../images/calculator-150.webp 150w, ../images/calculator-300.webp 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <img class="project-photo"
+                                         src="../images/calculator-300.jpg"
+                                         srcset="../images/calculator-150.jpg 150w, ../images/calculator-300.jpg 300w"
+                                         sizes="(max-width: 768px) 150px, 300px"
+                                         width="300" height="200"
+                                         alt="Интерфейс калькулятора на C#"
+                                         loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Калькулятор на C#</h3>
+                                <p class="project-card__description">Простой и функциональный калькулятор с поддержкой основных математических операций</p>
+                                <p class="project-card__tech">умные</p>
+                                <div class="project-card__meta">
+                                    <span class="project-date">Октябрь 2024</span>
+                                    <span class="project-status">Завершен</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card-large">
+                            <div class="project-card__image">
+                                <picture>
+                                    <source type="image/avif" 
+                                            srcset="../images/website-150.avif 150w, ../images/website-300.avif 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <source type="image/webp" 
+                                            srcset="../images/website-150.webp 150w, ../images/website-300.webp 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <img class="project-photo"
+                                         src="../images/website-300.jpg"
+                                         srcset="../images/website-150.jpg 150w, ../images/website-300.jpg 300w"
+                                         sizes="(max-width: 768px) 150px, 300px"
+                                         width="300" height="200"
+                                         alt="Главная страница личного сайта"
+                                         loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Сайт про меня</h3>
+                                <p class="project-card__description">Персональный веб-сайт с информацией о навыках, проектах и контактами</p>
+                                <p class="project-card__tech">смешные</p>
+                                <div class="project-card__meta">
+                                    <span class="project-date">Сентябрь 2024</span>
+                                    <span class="project-status">Завершен</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card-large">
+                            <div class="project-card__image">
+                                <picture>
+                                    <source type="image/avif" 
+                                            srcset="../images/ball-150.avif 150w, ../images/ball-300.avif 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <source type="image/webp" 
+                                            srcset="../images/ball-150.webp 150w, ../images/ball-300.webp 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <img class="project-photo"
+                                         src="../images/ball-300.jpg"
+                                         srcset="../images/ball-150.jpg 150w, ../images/ball-300.jpg 300w"
+                                         sizes="(max-width: 768px) 150px, 300px"
+                                         width="300" height="200"
+                                         alt="Сайт Традиционного бала РТУ МИРЭА"
+                                         loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Сайт для Традиционного бала РТУ МИРЭА</h3>
+                                <p class="project-card__description">Официальный сайт мероприятия с информацией о программе, регистрацией и контактами организаторов</p>
+                                <p class="project-card__tech">сложные</p>
+                                <div class="project-card__meta">
+                                    <span class="project-date">Ноябрь 2024</span>
+                                    <span class="project-status">В разработке</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card-large">
+                            <div class="project-card__image">
+                                <picture>
+                                    <source type="image/avif" 
+                                            srcset="../images/portfolio-150.avif 150w, ../images/portfolio-300.avif 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <source type="image/webp" 
+                                            srcset="../images/portfolio-150.webp 150w, ../images/portfolio-300.webp 300w"
+                                            sizes="(max-width: 768px) 150px, 300px">
+                                    <img class="project-photo"
+                                         src="../images/portfolio-300.jpg"
+                                         srcset="../images/portfolio-150.jpg 150w, ../images/portfolio-300.jpg 300w"
+                                         sizes="(max-width: 768px) 150px, 300px"
+                                         width="300" height="200"
+                                         alt="Заглушка для будущего портфолио"
+                                         loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Портфолио (скоро будет)</h3>
+                                <p class="project-card__description">Расширенное портфолио с детальным описанием проектов и достижений</p>
+                                <p class="project-card__tech">сложные</p>
+                                <div class="project-card__meta">
+                                    <span class="project-date">Декабрь 2024</span>
+                                    <span class="project-status">Планируется</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
